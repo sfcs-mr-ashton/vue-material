@@ -1,5 +1,5 @@
 <template>
-  <md-field class="md-autocomplete" :class="fieldClasses" md-:md-clearable="mdClearable" @md-clear="onClear" :md-inline="isBoxLayout">
+  <md-field class="md-autocomplete" :class="fieldClasses" :md-clearable="mdClearable" @md-clear="onClear" :md-inline="isBoxLayout">
     <md-menu md-direction="bottom-start" :md-dense="mdDense" md-align-trigger md-full-width :md-active.sync="showMenu">
       <md-input
         v-model="searchTerm"
