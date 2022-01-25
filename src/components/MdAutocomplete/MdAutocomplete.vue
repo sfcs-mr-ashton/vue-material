@@ -1,5 +1,5 @@
 <template>
-  <md-field class="md-autocomplete" :class="fieldClasses" md-clearable :md-inline="isBoxLayout">
+  <md-field class="md-autocomplete" :class="fieldClasses" md-:md-clearable="mdClearable" @md-clear="onClear" :md-inline="isBoxLayout">
     <md-menu md-direction="bottom-start" :md-dense="mdDense" md-align-trigger md-full-width :md-active.sync="showMenu">
       <md-input
         v-model="searchTerm"
@@ -73,7 +73,11 @@
       mdInputName: String,
       mdInputId: String,
       mdInputMaxlength: [String, Number],
-      mdInputPlaceholder: [String, Number]
+      mdInputPlaceholder: [String, Number],
+      mdClearable: {
+        type: Boolean,
+        default: true
+      }
     },
     data () {
       return {
@@ -220,6 +224,9 @@
         this.$emit('input', item)
         this.$emit('md-selected', item)
         this.hideOptions()
+      },
+      onClear: function onClear() {
+        this.$emit('md-clear');
       }
     }
   }
